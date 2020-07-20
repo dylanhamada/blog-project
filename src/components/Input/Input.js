@@ -1,16 +1,18 @@
 import React from 'react';
 
+import Aux from '../../hoc/_Aux/_Aux';
 import TitleInput from './TitleInput/TitleInput';
 import BlogInput from './BlogInput/BlogInput';
+import Button from '../UI/Button/Button';
 
-const input = props => {
+const Input = props => {
     return (
-        <div>
+        <Aux>
             <TitleInput />
             <BlogInput />
-            <div>Submit Button</div>
-        </div>
+            <Button />
+        </Aux>
     );
 }
 
-export default input;
+export default Input;

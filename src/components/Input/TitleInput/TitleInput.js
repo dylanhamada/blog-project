@@ -1,11 +1,11 @@
 import React from 'react';
 
-const titleInput = props => {
+const TitleInput = props => {
     return (
         <div>
-            <input placeholder="Blog Post Title"></input>
+            <input id="blogTitle" placeholder="Blog Post Title"></input>
         </div>
     );
 }
 
-export default titleInput;
+export default TitleInput;
