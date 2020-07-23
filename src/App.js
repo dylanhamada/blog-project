@@ -6,10 +6,7 @@ import Blog from './containers/Blog/Blog';
 class App extends Component {
     render() {
         return (
-            <div>
-                <Blog />
-                <div>Blog Posts</div>
-            </div>
+            <Blog />
         );
     }
 }

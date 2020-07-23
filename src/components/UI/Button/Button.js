@@ -6,7 +6,7 @@ const Button = props => {
     const authContext = useContext(AuthContext);
 
     return (
-        <button>Submit</button>
+        <button onClick={authContext.submit}>Submit</button>
     );
 };
 
