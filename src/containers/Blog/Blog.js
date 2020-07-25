@@ -14,7 +14,8 @@ class Blog extends Component {
         const blogPosts = this.state.posts;
         const blogTitle = document.querySelector("#blogTitle");
         const blogBody = document.querySelector("#blogBody");
-        const blogDate = new Date();
+        const currentDate = new Date();
+        const blogDate = currentDate.toLocaleDateString();
 
         if (blogTitle.value && blogBody.value) {
             const newPost = {
@@ -22,7 +23,7 @@ class Blog extends Component {
                 body: blogBody.value,
                 date: blogDate
             };
-            const updatedPosts = blogPosts.push(newPost);
+            const updatedPosts = [...blogPosts, newPost];
 
             this.setState({
                 posts: updatedPosts
@@ -30,8 +31,6 @@ class Blog extends Component {
 
             blogTitle.value = "";
             blogBody.value = "";
-
-            console.log(this.state.posts);
         }
     }
 
