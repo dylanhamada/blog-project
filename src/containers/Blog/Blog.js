@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 
 import AuthContext from '../../context/auth-context';
 import Aux from '../../hoc/_Aux/_Aux';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import NewPost from '../../components/UI/Buttons/NewPost';
 import Input from '../../components/Input/Input';
 import Display from '../../components/Display/Display';
 
 class Blog extends Component {
     state = {
-        posts: []
+        posts: [],
+        showInput: false
     }
 
     submitBlogHandler = () => {
@@ -34,13 +37,28 @@ class Blog extends Component {
         }
     }
 
+    showInputHandler = () => {
+        let showInputToggle = this.state.showInput;
+        showInputToggle = !showInputToggle;
+        this.setState({ showInput: showInputToggle });
+    }
+
     render() {
+        let input = null;
+        let backdrop = null;
+        if (this.state.showInput) {
+            backdrop = <Backdrop />
+            input = <Input />
+        }
+
         return (
             <Aux>
-                <AuthContext.Provider value={{ posts: this.state.posts, submit: this.submitBlogHandler }}>
-                    <Input />
-                    <Display />
+                {backdrop}
+                <NewPost showToggle={this.showInputHandler} />
+                <AuthContext.Provider value={{ submit: this.submitBlogHandler }}>
+                    {input}
                 </AuthContext.Provider>
+                <Display posts={this.state.posts} />
             </Aux>
         );
     }

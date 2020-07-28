@@ -1,16 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import classes from './Display.module.css';
-import AuthContext from '../../context/auth-context';
 import DisplayBox from './DisplayBox/DisplayBox';
 
 const Display = props => {
-    const authContext = useContext(AuthContext);
-
     let blogPosts = null;
 
-    if (authContext.posts) {
-        blogPosts = authContext.posts.map(post => {
+    if (props.posts) {
+        blogPosts = props.posts.map(post => {
             return (
                 <DisplayBox key={post.title} blogTitle={post.title} blogText={post.body} blogDate={post.date} />
             );

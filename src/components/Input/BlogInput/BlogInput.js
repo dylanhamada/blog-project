@@ -1,10 +1,10 @@
 import React from 'react';
 
+import classes from './BlogInput.module.css';
+
 const BlogInput = props => {
     return (
-        <div>
-            <textarea id="blogBody" placeholder="Blog post text"></textarea>
-        </div>
+        <textarea id="blogBody" className={classes.BlogInput} placeholder="Blog post text" rows="10"></textarea>
     );
 }
 

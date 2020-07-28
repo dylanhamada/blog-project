@@ -1,17 +1,17 @@
 import React from 'react';
 
-import Aux from '../../hoc/_Aux/_Aux';
+import classes from './Input.module.css';
 import TitleInput from './TitleInput/TitleInput';
 import BlogInput from './BlogInput/BlogInput';
-import Button from '../UI/Button/Button';
+import Submit from '../UI/Buttons/Submit';
 
 const Input = props => {
     return (
-        <Aux>
+        <div className={classes.Input}>
             <TitleInput />
             <BlogInput />
-            <Button />
-        </Aux>
+            <Submit />
+        </div>
     );
 }
 

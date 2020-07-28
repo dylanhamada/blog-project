@@ -1,0 +1,7 @@
+.BlogInput {
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    resize: none;
+}
