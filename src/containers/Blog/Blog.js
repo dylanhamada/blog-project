@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
+import axios from 'axios';
 import AuthContext from '../../context/auth-context';
 import Aux from '../../hoc/_Aux/_Aux';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
-import NewPost from '../../components/UI/Buttons/NewPost';
+import Button from '../../components/UI/Button/Button';
 import Input from '../../components/Input/Input';
 import Display from '../../components/Display/Display';
 
@@ -11,6 +12,15 @@ class Blog extends Component {
     state = {
         posts: [],
         showInput: false
+    }
+
+    componentDidMount() {
+        axios.get('/posts.json')
+            .then(response => {
+                if (response.data) {
+                    this.setState({ posts: response.data });
+                }
+            });
     }
 
     submitBlogHandler = () => {
@@ -32,30 +42,36 @@ class Blog extends Component {
                 posts: updatedPosts
             });
 
+            axios.post('/posts.json', updatedPosts);
+
             blogTitle.value = "";
             blogBody.value = "";
         }
     }
 
-    showInputHandler = () => {
-        let showInputToggle = this.state.showInput;
-        showInputToggle = !showInputToggle;
-        this.setState({ showInput: showInputToggle });
+    toggleInputHandler = () => {
+        let inputToggle = this.state.showInput;
+        inputToggle = !inputToggle;
+        this.setState({ showInput: inputToggle });
     }
 
     render() {
         let input = null;
         let backdrop = null;
+        let newBlogStyle = {
+            marginTop: '25px'
+        };
+
         if (this.state.showInput) {
-            backdrop = <Backdrop />
+            backdrop = <Backdrop clicked={this.toggleInputHandler} />
             input = <Input />
         }
 
         return (
             <Aux>
                 {backdrop}
-                <NewPost showToggle={this.showInputHandler} />
-                <AuthContext.Provider value={{ submit: this.submitBlogHandler }}>
+                <Button clicked={this.toggleInputHandler} buttonStyles={newBlogStyle} buttonText="New Blog Post" />
+                <AuthContext.Provider value={{ submit: this.submitBlogHandler, cancel: this.toggleInputHandler }}>
                     {input}
                 </AuthContext.Provider>
                 <Display posts={this.state.posts} />

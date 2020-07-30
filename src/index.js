@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import axios from 'axios';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+axios.defaults.baseURL = "https://blog-project-19c30.firebaseio.com/";
 
 ReactDOM.render(
   <React.StrictMode>
