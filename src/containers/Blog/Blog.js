@@ -10,7 +10,7 @@ import Display from '../../components/Display/Display';
 
 class Blog extends Component {
     state = {
-        posts: [],
+        posts: null,
         showInput: false
     }
 
@@ -21,10 +21,10 @@ class Blog extends Component {
                     this.setState({ posts: response.data });
                 }
             });
+        console.log("ComponentDidMount");
     }
 
     submitBlogHandler = () => {
-        const blogPosts = this.state.posts;
         const blogTitle = document.querySelector("#blogTitle");
         const blogBody = document.querySelector("#blogBody");
         const currentDate = new Date();
@@ -36,17 +36,23 @@ class Blog extends Component {
                 body: blogBody.value,
                 date: blogDate
             };
-            const updatedPosts = [...blogPosts, newPost];
 
-            this.setState({
-                posts: updatedPosts
-            });
-
-            axios.post('/posts.json', updatedPosts);
+            axios.post('/posts.json', newPost)
+                .then(resp => {
+                    axios.get('/posts.json')
+                        .then(response => {
+                            if (response.data) {
+                                this.setState({ posts: response.data });
+                                console.log(this.state.posts);
+                            }
+                        });
+                });
 
             blogTitle.value = "";
             blogBody.value = "";
         }
+
+        console.log("submitBlogHandler");
     }
 
     toggleInputHandler = () => {
@@ -58,6 +64,7 @@ class Blog extends Component {
     render() {
         let input = null;
         let backdrop = null;
+        let display = null;
         let newBlogStyle = {
             marginTop: '25px'
         };

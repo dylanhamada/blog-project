@@ -7,9 +7,13 @@ const Display = props => {
     let blogPosts = null;
 
     if (props.posts) {
-        blogPosts = props.posts.map(post => {
+        const postKeys = Object.keys(props.posts);
+
+        blogPosts = postKeys.map(post => {
+            let currentPost = props.posts[post];
+
             return (
-                <DisplayBox key={post.title} blogTitle={post.title} blogText={post.body} blogDate={post.date} />
+                <DisplayBox key={post} blogTitle={currentPost.title} blogText={currentPost.body} blogDate={currentPost.date} />
             );
         });
     }
