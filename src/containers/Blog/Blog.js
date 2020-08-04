@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
+
 import AuthContext from '../../context/auth-context';
 import Aux from '../../hoc/_Aux/_Aux';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import Modal from '../../components/UI/Modal/Modal';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/Input/Input';
 import Display from '../../components/Display/Display';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 class Blog extends Component {
     state = {
         posts: null,
-        showInput: false
+        showInput: false,
+        error: false
     }
 
     componentDidMount() {
@@ -21,7 +25,6 @@ class Blog extends Component {
                     this.setState({ posts: response.data });
                 }
             });
-        console.log("ComponentDidMount");
     }
 
     submitBlogHandler = () => {
@@ -38,21 +41,20 @@ class Blog extends Component {
             };
 
             axios.post('/posts.json', newPost)
-                .then(resp => {
+                .then(() => {
                     axios.get('/posts.json')
                         .then(response => {
                             if (response.data) {
                                 this.setState({ posts: response.data });
-                                console.log(this.state.posts);
                             }
                         });
+
+                    this.setState({ showInput: false });
                 });
 
             blogTitle.value = "";
             blogBody.value = "";
         }
-
-        console.log("submitBlogHandler");
     }
 
     toggleInputHandler = () => {
@@ -62,20 +64,25 @@ class Blog extends Component {
     }
 
     render() {
-        let input = null;
         let backdrop = null;
-        let display = null;
+        let error = null;
+        let input = null;
         let newBlogStyle = {
             marginTop: '25px'
         };
 
         if (this.state.showInput) {
-            backdrop = <Backdrop clicked={this.toggleInputHandler} />
-            input = <Input />
+            backdrop = <Backdrop clicked={this.toggleInputHandler} />;
+            input = (
+                <Modal>
+                    <Input />
+                </Modal>
+            );
         }
 
         return (
             <Aux>
+                {error}
                 {backdrop}
                 <Button clicked={this.toggleInputHandler} buttonStyles={newBlogStyle} buttonText="New Blog Post" />
                 <AuthContext.Provider value={{ submit: this.submitBlogHandler, cancel: this.toggleInputHandler }}>
@@ -87,4 +94,4 @@ class Blog extends Component {
     }
 }
 
-export default Blog;
+export default withErrorHandler(Blog, axios);
