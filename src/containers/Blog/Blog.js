@@ -40,15 +40,16 @@ class Blog extends Component {
                 date: blogDate
             };
 
-            axios.post('/posts.json', newPost)
-                .then(() => {
-                    axios.get('/posts.json')
-                        .then(response => {
-                            if (response.data) {
-                                this.setState({ posts: response.data });
-                            }
-                        });
-
+            axios.post('/posts.jsonnn', newPost)
+                .then(resp => {
+                    if (resp) {
+                        axios.get('/posts.json')
+                            .then(response => {
+                                if (response.data) {
+                                    this.setState({ posts: response.data });
+                                }
+                            });
+                    }
                     this.setState({ showInput: false });
                 });
 
