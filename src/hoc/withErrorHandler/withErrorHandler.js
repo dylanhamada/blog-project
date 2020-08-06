@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Aux from '../_Aux/_Aux';
-import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Modal from '../../components/UI/Modal/Modal';
 
 const withErrorhandler = (WrappedComponent, axios) => {
@@ -20,15 +19,16 @@ const withErrorhandler = (WrappedComponent, axios) => {
             });
         }
 
-        render() {
-            let errorModal = null;
-            if (this.state.error) {
-                errorModal = <Modal newStyle={{ top: "100px" }}>{this.state.error.message}</Modal>;
-            }
+        errorCloseHandler = () => {
+            this.setState({ error: null });
+        }
 
+        render() {
             return (
                 <Aux>
-                    {errorModal}
+                    <Modal show={this.state.error} closeModal={this.errorCloseHandler}>
+                        {this.state.error ? this.state.error.message : null}
+                    </Modal>
                     <WrappedComponent {...this.props} />
                 </Aux>
             );

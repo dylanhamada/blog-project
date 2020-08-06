@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import AuthContext from '../../context/auth-context';
 import Aux from '../../hoc/_Aux/_Aux';
-import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Modal from '../../components/UI/Modal/Modal';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/Input/Input';
@@ -40,7 +39,7 @@ class Blog extends Component {
                 date: blogDate
             };
 
-            axios.post('/posts.jsonnn', newPost)
+            axios.post('/posts.json', newPost)
                 .then(resp => {
                     if (resp) {
                         axios.get('/posts.json')
@@ -65,29 +64,17 @@ class Blog extends Component {
     }
 
     render() {
-        let backdrop = null;
-        let error = null;
-        let input = null;
         let newBlogStyle = {
             marginTop: '25px'
         };
 
-        if (this.state.showInput) {
-            backdrop = <Backdrop clicked={this.toggleInputHandler} />;
-            input = (
-                <Modal>
-                    <Input />
-                </Modal>
-            );
-        }
-
         return (
             <Aux>
-                {error}
-                {backdrop}
                 <Button clicked={this.toggleInputHandler} buttonStyles={newBlogStyle} buttonText="New Blog Post" />
                 <AuthContext.Provider value={{ submit: this.submitBlogHandler, cancel: this.toggleInputHandler }}>
-                    {input}
+                    <Modal show={this.state.showInput} closeModal={this.toggleInputHandler}>
+                        <Input />
+                    </Modal>
                 </AuthContext.Provider>
                 <Display posts={this.state.posts} />
             </Aux>
