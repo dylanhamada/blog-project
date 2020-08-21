@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import AuthContext from '../../context/auth-context';
 import Aux from '../../hoc/_Aux/_Aux';
+import Actions from '../../components/Actions/Actions';
 import Modal from '../../components/UI/Modal/Modal';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/Input/Input';
@@ -12,9 +13,9 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 class Blog extends Component {
     state = {
+        screen: 'home',
         posts: null,
         showInput: false,
-        error: false
     }
 
     componentDidMount() {
@@ -70,7 +71,8 @@ class Blog extends Component {
 
         return (
             <Aux>
-                <Button clicked={this.toggleInputHandler} buttonStyles={newBlogStyle} buttonText="New Blog Post" />
+                {/* <Button clicked={this.toggleInputHandler} buttonStyles={newBlogStyle} buttonText="New Blog Post" /> */}
+                <Actions screen={this.state.screen} />
                 <AuthContext.Provider value={{ submit: this.submitBlogHandler, cancel: this.toggleInputHandler }}>
                     <Modal show={this.state.showInput} closeModal={this.toggleInputHandler}>
                         <Input />

@@ -1,0 +1,22 @@
+.Actions {
+    background: rgb(209, 209, 209);
+    bottom: 0;
+    display: flex;
+    flex-flow: column wrap;
+    height: 10%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .Actions {
+        bottom: auto;
+        height: 100%;
+        justify-content: start;
+        left: 0;
+        top: 0;
+        width: 15%;
+    }  
+}
