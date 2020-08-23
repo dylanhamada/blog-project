@@ -1,0 +1,22 @@
+.Icon img {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.Text {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .Action {
+        margin: 1em auto;
+    }
+
+    .Icon {
+        display: none;
+    }
+    
+    .Text {
+        display: inline;
+    }
+}

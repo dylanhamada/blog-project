@@ -5,15 +5,14 @@ import axios from 'axios';
 import AuthContext from '../../context/auth-context';
 import Aux from '../../hoc/_Aux/_Aux';
 import Actions from '../../components/Actions/Actions';
-import Modal from '../../components/UI/Modal/Modal';
-import Button from '../../components/UI/Button/Button';
+import Modal from '../../components/Layout/Modal/Modal';
 import Input from '../../components/Input/Input';
 import Display from '../../components/Display/Display';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 class Blog extends Component {
     state = {
-        screen: 'home',
+        screen: 'post',
         posts: null,
         showInput: false,
     }
@@ -65,20 +64,15 @@ class Blog extends Component {
     }
 
     render() {
-        let newBlogStyle = {
-            marginTop: '25px'
-        };
-
         return (
             <Aux>
-                {/* <Button clicked={this.toggleInputHandler} buttonStyles={newBlogStyle} buttonText="New Blog Post" /> */}
-                <Actions screen={this.state.screen} />
                 <AuthContext.Provider value={{ submit: this.submitBlogHandler, cancel: this.toggleInputHandler }}>
                     <Modal show={this.state.showInput} closeModal={this.toggleInputHandler}>
                         <Input />
                     </Modal>
                 </AuthContext.Provider>
                 <Display posts={this.state.posts} />
+                <Actions screen={this.state.screen} />
             </Aux>
         );
     }

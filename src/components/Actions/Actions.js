@@ -2,42 +2,43 @@ import React from 'react';
 
 import classes from './Actions.module.css';
 import Aux from '../../hoc/_Aux/_Aux';
-import Button from '../UI/Button/Button';
+import Action from './Action/Action';
 
 const Actions = props => {
-    let buttonList;
+    let actionList;
 
     switch (props.screen) {
         case 'home':
-            buttonList = (
-                <Button buttonText="New Post" />
+            actionList = (
+                <Action text="New Post" />
             );
             break;
         case 'new':
-            buttonList = (
+            actionList = (
                 <Aux>
-                    <Button buttonText="Cancel" />
-                    <Button buttonText="Accept" />
+                    <Action text="Cancel" />
+                    <Action text="Accept" />
                 </Aux>
             );
             break;
         case 'post':
-            buttonList = (
+            actionList = (
                 <Aux>
-                    <Button buttonText="Edit" />
-                    <Button buttonText="Delete" />
+                    <Action text="Edit" />
+                    <Action text="Delete" />
                 </Aux>
             );
+            break;
         default:
-            buttonList = (
-                <Button buttonText="New Post" />
+            actionList = (
+                <Action text="New Post" />
             );
             break;
     }
 
     return (
         <div className={classes.Actions}>
-            {buttonList}
+            {actionList}
         </div>
     );
 }
