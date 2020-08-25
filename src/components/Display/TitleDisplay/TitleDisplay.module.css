@@ -1,3 +1,5 @@
-.titleDisplay {
-    background: rgb(179, 213, 252);
+.TitleDisplay {
+  margin: 15px 0;
+  text-align: left;
+  text-transform: capitalize;
 }

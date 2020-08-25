@@ -4,7 +4,7 @@ import classes from './TextDisplay.module.css';
 
 const TextDisplay = props => {
     return (
-        <div className={classes.textDisplay}>{props.blogText}</div>
+        <p className={classes.TextDisplay}>{props.blogText}</p>
     );
 }
 

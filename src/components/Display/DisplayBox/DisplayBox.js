@@ -9,8 +9,8 @@ const DisplayBox = props => {
     return (
         <div className={classes.DisplayBox}>
             <TitleDisplay blogTitle={props.blogTitle} />
-            <TextDisplay blogText={props.blogText} />
             <DateDisplay blogDate={props.blogDate} />
+            <TextDisplay blogText={props.blogText} />
         </div>
     );
 }

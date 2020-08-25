@@ -4,7 +4,7 @@ import classes from './DateDisplay.module.css';
 
 const DateDisplay = props => {
     return (
-        <div className={classes.dateDisplay}>{props.blogDate}</div>
+        <p className={classes.DateDisplay}>{props.blogDate}</p>
     );
 }
 

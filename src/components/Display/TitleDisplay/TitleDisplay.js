@@ -4,7 +4,7 @@ import classes from './TitleDisplay.module.css';
 
 const TitleDisplay = props => {
     return (
-        <div className={classes.titleDisplay}>{props.blogTitle}</div>
+        <h2 className={classes.TitleDisplay}>{props.blogTitle}</h2>
     );
 }
 

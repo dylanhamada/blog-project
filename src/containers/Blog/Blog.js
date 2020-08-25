@@ -12,7 +12,7 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 class Blog extends Component {
     state = {
-        screen: 'post',
+        screen: 'home',
         posts: null,
         showInput: false,
     }
@@ -29,8 +29,8 @@ class Blog extends Component {
     submitBlogHandler = () => {
         const blogTitle = document.querySelector("#blogTitle");
         const blogBody = document.querySelector("#blogBody");
-        const currentDate = new Date();
-        const blogDate = currentDate.toLocaleDateString();
+        const blogDate = new Date();
+        // const blogDate = currentDate.toLocaleDateString();
 
         if (blogTitle.value && blogBody.value) {
             const newPost = {
