@@ -1,10 +1,14 @@
 .DisplayBox {
   margin: 25px auto;
-  max-height: 200px;
   position: relative;
 }
 
-.DisplayBox::before {
+.DisplayBoxLong {
+  margin: 25px auto;
+  position: relative;
+}
+
+.DisplayBoxLong::before {
   background-image: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 85%,

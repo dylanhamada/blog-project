@@ -1,4 +1,8 @@
 .TextDisplay {
+  font-size: 0.8em;
   margin: 15px 0;
+  max-height: 150px;
+  overflow: hidden;
   text-align: left;
+  white-space: pre-wrap;
 }

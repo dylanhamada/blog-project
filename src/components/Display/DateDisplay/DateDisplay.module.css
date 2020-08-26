@@ -1,4 +1,9 @@
 .DateDisplay {
+  font-size: 0.8em;
   margin: 15px 0;
   text-align: left;
+}
+
+.author {
+  font-weight: 700;
 }
