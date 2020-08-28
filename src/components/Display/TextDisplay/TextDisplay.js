@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import classes from './TextDisplay.module.css';
 
-const TextDisplay = React.forwardRef((props, ref) => {
+const TextDisplay = props => {
+    const textBox = useRef(null);
+
+    useEffect(() => {
+        const boxHeight = textBox.current.offsetHeight;
+
+        if (boxHeight > 149) { props.gradientToggle() }
+    });
+
     return (
-        <p className={classes.TextDisplay} ref={ref}>{props.blogText}</p>
+        <p className={classes.TextDisplay} ref={textBox}>{props.blogText}</p>
     );
-});
+};
 
 export default TextDisplay;

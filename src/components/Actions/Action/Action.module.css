@@ -8,6 +8,13 @@
 }
 
 @media (min-width: 600px) {
+  .Icon {
+    position: relative;
+    top: 5px;
+  }
+}
+
+@media (min-width: 800px) {
   .Action {
     margin: 1em auto;
   }
