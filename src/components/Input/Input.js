@@ -1,26 +1,20 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import classes from './Input.module.css';
-import AuthContext from './../../context/auth-context';
 import TitleInput from './TitleInput/TitleInput';
 import BlogInput from './BlogInput/BlogInput';
-import Button from '../UI/Button/Button';
+
+import close from '../../assets/icons/chevron-down.svg';
 
 const Input = props => {
-    const authContext = useContext(AuthContext);
-    const submitStyles = {
-        margin: '10px 0'
-    };
-    const cancelStyles = {
-        margin: '0 0 10px 0'
-    };
+    const show = props.show ? classes.Input : classes.Hide;
 
     return (
-        <div className={classes.Input}>
+        <div className={show}>
+            <h2>New Post</h2>
+            <span><img src={close} className={classes.Close} alt="close" /></span>
             <TitleInput />
             <BlogInput />
-            <Button clicked={authContext.submit} buttonText="Submit" buttonStyles={submitStyles} />
-            <Button clicked={authContext.cancel} buttonText="Cancel" buttonStyles={cancelStyles} />
         </div>
     );
 }

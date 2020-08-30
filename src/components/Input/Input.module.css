@@ -1,6 +1,26 @@
+.Hide {
+    display: none;
+}
+
 .Input {
     display: flex;
-    padding: 0 10px;
-    box-sizing: border-box;
     flex-direction: column;
+    margin: 25px 7%;
+    text-align: left;
+}
+
+.Close {
+    height: 15px;
+    width: 15px;
+}
+
+h2 {
+    display: inline-block;
+    margin-top: 0;
+}
+
+@media (min-width: 600px) {
+    .Input {
+        margin: 25px 15%;
+    }
 }
