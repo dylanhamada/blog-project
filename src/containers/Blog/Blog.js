@@ -5,16 +5,16 @@ import axios from 'axios';
 import AuthContext from '../../context/auth-context';
 import Aux from '../../hoc/_Aux/_Aux';
 import Actions from '../../components/Actions/Actions';
-import Modal from '../../components/Layout/Modal/Modal';
 import Input from '../../components/Input/Input';
 import Display from '../../components/Display/Display';
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+// import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 class Blog extends Component {
     state = {
         screen: 'home',
         posts: null,
         showInput: false,
+        showDisplay: true
     }
 
     componentDidMount() {
@@ -48,7 +48,7 @@ class Blog extends Component {
                                 }
                             });
                     }
-                    this.setState({ showInput: false });
+                    this.setState({ showInput: false, showDisplay: true, screen: 'home' });
                 });
 
             blogTitle.value = "";
@@ -60,6 +60,12 @@ class Blog extends Component {
         this.setState({ screen: action });
     }
 
+    toggleDisplayHandler = () => {
+        let displayToggle = this.state.showDisplay;
+        displayToggle = !displayToggle;
+        this.setState({ showDisplay: displayToggle });
+    }
+
     toggleInputHandler = () => {
         let inputToggle = this.state.showInput;
         inputToggle = !inputToggle;
@@ -69,16 +75,14 @@ class Blog extends Component {
     render() {
         return (
             <Aux>
-                <AuthContext.Provider value={{ action: this.toggleActionHandler, submit: this.submitBlogHandler, cancel: this.toggleInputHandler }}>
-                    <Modal show={this.state.showInput} closeModal={this.toggleInputHandler}>
-                        <Input />
-                    </Modal>
+                <AuthContext.Provider value={{ action: this.toggleActionHandler, submit: this.submitBlogHandler, cancel: this.toggleInputHandler, display: this.toggleDisplayHandler }}>
+                    <Input show={this.state.showInput} />
                     <Actions screen={this.state.screen} />
                 </AuthContext.Provider>
-                <Display posts={this.state.posts} />
+                <Display posts={this.state.posts} show={this.state.showDisplay} />
             </Aux>
         );
     }
 }
 
-export default withErrorHandler(Blog, axios);
+export default Blog;

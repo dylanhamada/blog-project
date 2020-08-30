@@ -4,6 +4,7 @@ import classes from './Display.module.css';
 import DisplayBox from './DisplayBox/DisplayBox';
 
 const Display = props => {
+    const show = props.show ? classes.Display : classes.Hide;
     let blogPosts = null;
 
     if (props.posts) {
@@ -19,7 +20,7 @@ const Display = props => {
     }
 
     return (
-        <div className={classes.Display}>
+        <div className={show}>
             {blogPosts}
         </div>
     );
