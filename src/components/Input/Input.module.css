@@ -1,3 +1,7 @@
+.Hide {
+    display: none;
+}
+
 .Input {
     display: flex;
     flex-direction: column;
@@ -5,6 +9,14 @@
     text-align: left;
 }
 
+<<<<<<< HEAD
+=======
+.Close {
+    height: 15px;
+    width: 15px;
+}
+
+>>>>>>> 226073ac01fe7d7e1fe28f0631a7d91d1f954fa5
 h2 {
     display: inline-block;
     margin-top: 0;
