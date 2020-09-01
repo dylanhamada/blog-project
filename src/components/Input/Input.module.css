@@ -1,17 +1,8 @@
-.Hide {
-    display: none;
-}
-
 .Input {
     display: flex;
     flex-direction: column;
     margin: 25px 7%;
     text-align: left;
-}
-
-.Close {
-    height: 15px;
-    width: 15px;
 }
 
 h2 {

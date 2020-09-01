@@ -1,0 +1,26 @@
+.Header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.ChevronClose {
+    height: 20px;
+    width: 20px;
+}
+
+.CrossClose {
+    display: none;
+    height: 20px;
+    width: 20px;
+}
+
+@media (min-width: 800px) {
+    .ChevronClose {
+        display: none;
+    }
+    
+    .CrossClose {
+        display: flex;
+    }
+}

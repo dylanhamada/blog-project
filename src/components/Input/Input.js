@@ -1,21 +1,25 @@
 import React from 'react';
 
 import classes from './Input.module.css';
+import InputHeader from './InputHeader/InputHeader';
 import TitleInput from './TitleInput/TitleInput';
+import AuthorInput from './AuthorInput/AuthorInput';
 import BlogInput from './BlogInput/BlogInput';
 
-import close from '../../assets/icons/chevron-down.svg';
-
 const Input = props => {
-    const show = props.show ? classes.Input : classes.Hide;
-
-    return (
-        <div className={show}>
-            <h2>New Post</h2>
-            <span><img src={close} className={classes.Close} alt="close" /></span>
+    let input = props.show ? (
+        <div className={classes.Input}>
+            <InputHeader />
             <TitleInput />
+            <AuthorInput />
             <BlogInput />
         </div>
+    ) : null;
+
+    return (
+        <>
+            {input}
+        </>
     );
 }
 

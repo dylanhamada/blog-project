@@ -4,7 +4,10 @@ import classes from './BlogInput.module.css';
 
 const BlogInput = props => {
     return (
-        <textarea id="blogBody" className={classes.BlogInput} placeholder="Blog post text" rows="10"></textarea>
+        <div className={classes.BlogInput}>
+            <p>Blog Text</p>
+            <textarea id="blogBody" placeholder="Blog Post Text" rows="10"></textarea>
+        </div>
     );
 }
 

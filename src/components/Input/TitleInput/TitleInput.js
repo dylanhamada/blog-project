@@ -4,7 +4,10 @@ import classes from './TitleInput.module.css';
 
 const TitleInput = props => {
     return (
-        <input id="blogTitle" className={classes.TitleInput} placeholder="Blog post title"></input>
+        <div className={classes.TitleInput}>
+            <p>Title</p>
+            <input id="blogTitle" placeholder="Blog Post Title"></input>
+        </div>
     );
 }
 
