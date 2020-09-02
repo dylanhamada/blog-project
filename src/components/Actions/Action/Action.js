@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 
-import classes from './Action.module.css';
 import AuthContext from '../../../context/auth-context';
+import classes from './Action.module.css';
+
 import acceptPost from '../../../assets/icons/checkmark.svg';
 import cancelPost from '../../../assets/icons/cross.svg';
 import deletePost from '../../../assets/icons/trash.svg';
@@ -14,14 +15,6 @@ const Action = props => {
     let icon;
 
     switch (props.text) {
-        case "New Post":
-            clicked = () => {
-                authContext.cancel();
-                authContext.action("new");
-                authContext.display();
-            };
-            icon = (<img src={newPost} alt="New Post" />);
-            break;
         case "Cancel":
             clicked = () => {
                 authContext.cancel();
@@ -43,6 +36,11 @@ const Action = props => {
             icon = (<img src={deletePost} alt="Delete" />);
             break;
         default:
+            clicked = () => {
+                authContext.cancel();
+                authContext.action("new");
+                authContext.display();
+            };
             icon = (<img src={newPost} alt="New Post" />);
             break;
     }

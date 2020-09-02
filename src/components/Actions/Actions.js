@@ -8,11 +8,6 @@ const Actions = props => {
     let actionList;
 
     switch (props.screen) {
-        case 'home':
-            actionList = (
-                <Action text="New Post" />
-            );
-            break;
         case 'new':
             actionList = (
                 <Aux>

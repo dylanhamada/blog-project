@@ -1,25 +1,10 @@
-.Hide {
-    display: none;
-}
-
 .Input {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    height: 85vh;
     margin: 25px 7%;
     text-align: left;
-}
-
-<<<<<<< HEAD
-=======
-.Close {
-    height: 15px;
-    width: 15px;
-}
-
->>>>>>> 226073ac01fe7d7e1fe28f0631a7d91d1f954fa5
-h2 {
-    display: inline-block;
-    margin-top: 0;
 }
 
 @media (min-width: 600px) {

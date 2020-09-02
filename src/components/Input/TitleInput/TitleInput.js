@@ -6,7 +6,7 @@ const TitleInput = props => {
     return (
         <div className={classes.TitleInput}>
             <p>Title</p>
-            <input id="blogTitle" placeholder="Blog Post Title"></input>
+            <input id="blogTitle" placeholder="Enter the blog title here"></input>
         </div>
     );
 }

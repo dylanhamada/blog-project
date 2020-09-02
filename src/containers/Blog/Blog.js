@@ -26,6 +26,10 @@ class Blog extends Component {
             });
     }
 
+    displayPostHandler = id => {
+        this.setState({ screen: 'post' });
+    }
+
     submitBlogHandler = () => {
         const blogTitle = document.querySelector("#blogTitle");
         const blogBody = document.querySelector("#blogBody");
@@ -73,13 +77,21 @@ class Blog extends Component {
     }
 
     render() {
+        const actions = {
+            action: this.toggleActionHandler,
+            cancel: this.toggleInputHandler,
+            display: this.displayPostHandler,
+            post: this.displayPostHandler,
+            submit: this.submitBlogHandler
+        };
+
         return (
             <Aux>
-                <AuthContext.Provider value={{ action: this.toggleActionHandler, submit: this.submitBlogHandler, cancel: this.toggleInputHandler, display: this.toggleDisplayHandler }}>
+                <AuthContext.Provider value={actions}>
                     <Input show={this.state.showInput} />
                     <Actions screen={this.state.screen} />
+                    <Display posts={this.state.posts} show={this.state.showDisplay} />
                 </AuthContext.Provider>
-                <Display posts={this.state.posts} show={this.state.showDisplay} />
             </Aux>
         );
     }
