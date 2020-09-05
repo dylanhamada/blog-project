@@ -2,13 +2,14 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: 85vh;
+    height: 80vh;
     margin: 25px 7%;
     text-align: left;
 }
 
 @media (min-width: 600px) {
     .Input {
+        height: auto;
         margin: 25px 15%;
     }
 }

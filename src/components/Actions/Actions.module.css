@@ -1,4 +1,4 @@
-.Actions {
+.Actions, .ActionsInput {
   align-items: center;
   background: white;
   bottom: 0;
@@ -26,5 +26,13 @@
     text-transform: uppercase;
     top: 0;
     width: 15%;
+  }
+
+  .ActionsInput {
+    font-weight: 500;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    position: relative;
+    text-transform: uppercase;
   }
 }

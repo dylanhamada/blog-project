@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
+import moment from 'moment';
 
 import AuthContext from '../../context/auth-context';
 import Aux from '../../hoc/_Aux/_Aux';
 import Actions from '../../components/Actions/Actions';
 import Input from '../../components/Input/Input';
 import Display from '../../components/Display/Display';
+import Post from '../../components/Post/Post';
 // import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 class Blog extends Component {
     state = {
         screen: 'home',
         posts: null,
+        singlePost: null,
+        showDisplay: true,
         showInput: false,
-        showDisplay: true
+        showPost: false
     }
 
     componentDidMount() {
@@ -28,16 +32,21 @@ class Blog extends Component {
 
     displayPostHandler = id => {
         this.setState({ screen: 'post' });
+        this.setState({ singlePost: this.state.posts[id] });
+        // this.setState({ postId: id });
+        this.toggleDisplayHandler();
     }
 
     submitBlogHandler = () => {
         const blogTitle = document.querySelector("#blogTitle");
         const blogBody = document.querySelector("#blogBody");
-        const blogDate = new Date();
+        const blogAuthor = document.querySelector("#blogAuthor");
+        const blogDate = moment().local().format("dddd, MMMM D [at] h[:]mm a");
 
-        if (blogTitle.value && blogBody.value) {
+        if (blogTitle.value && blogAuthor.value && blogBody.value) {
             const newPost = {
                 title: blogTitle.value,
+                author: blogAuthor.value,
                 body: blogBody.value,
                 date: blogDate
             };
@@ -76,11 +85,17 @@ class Blog extends Component {
         this.setState({ showInput: inputToggle });
     }
 
+    togglePostHandler = () => {
+        let postToggle = this.state.showPost;
+        postToggle = !postToggle;
+        this.setState({ showPost: postToggle });
+    }
+
     render() {
         const actions = {
             action: this.toggleActionHandler,
             cancel: this.toggleInputHandler,
-            display: this.displayPostHandler,
+            display: this.toggleDisplayHandler,
             post: this.displayPostHandler,
             submit: this.submitBlogHandler
         };
@@ -91,6 +106,7 @@ class Blog extends Component {
                     <Input show={this.state.showInput} />
                     <Actions screen={this.state.screen} />
                     <Display posts={this.state.posts} show={this.state.showDisplay} />
+                    <Post post={this.state.singlePost} show={this.state.showPost} />
                 </AuthContext.Provider>
             </Aux>
         );

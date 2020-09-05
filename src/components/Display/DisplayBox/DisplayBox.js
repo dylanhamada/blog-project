@@ -15,9 +15,9 @@ const DisplayBox = props => {
     };
 
     return (
-        <div className={boxClass} onClick={authContext.display}>
+        <div className={boxClass} onClick={() => authContext.post(props.id)}>
             <TitleDisplay blogTitle={props.blogTitle} />
-            <DateDisplay blogDate={props.blogDate} />
+            <DateDisplay blogAuthor={props.blogAuthor} blogDate={props.blogDate} />
             <TextDisplay blogText={props.blogText} gradientToggle={gradientToggle} />
         </div>
     );

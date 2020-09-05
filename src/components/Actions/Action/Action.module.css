@@ -1,3 +1,7 @@
+.Action {
+  cursor: pointer;
+}
+
 .Icon img {
   width: 24px;
   height: 24px;
@@ -24,6 +28,6 @@
   }
 
   .Text {
-    display: inline;
+    display: block;
   }
 }

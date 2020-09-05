@@ -1,27 +1,33 @@
 import React from 'react';
 
 import classes from './Actions.module.css';
-import Aux from '../../hoc/_Aux/_Aux';
 import Action from './Action/Action';
 
 const Actions = props => {
     let actionList;
+    let actionsStyle = classes.Actions;
 
     switch (props.screen) {
+        case 'home':
+            actionList = (
+                <Action text="New Post" />
+            );
+            break;
         case 'new':
             actionList = (
-                <Aux>
+                <>
                     <Action text="Cancel" />
                     <Action text="Accept" />
-                </Aux>
+                </>
             );
+            actionsStyle = classes.ActionsInput;
             break;
         case 'post':
             actionList = (
-                <Aux>
+                <>
                     <Action text="Edit" />
                     <Action text="Delete" />
-                </Aux>
+                </>
             );
             break;
         default:
@@ -32,7 +38,7 @@ const Actions = props => {
     }
 
     return (
-        <div className={classes.Actions}>
+        <div className={actionsStyle}>
             {actionList}
         </div>
     );

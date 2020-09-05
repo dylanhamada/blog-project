@@ -15,6 +15,14 @@ const Action = props => {
     let icon;
 
     switch (props.text) {
+        case "New Post":
+            clicked = () => {
+                authContext.cancel();
+                authContext.action("new");
+                authContext.display();
+            };
+            icon = (<img src={newPost} alt="New Post" />);
+            break;
         case "Cancel":
             clicked = () => {
                 authContext.cancel();
@@ -39,7 +47,6 @@ const Action = props => {
             clicked = () => {
                 authContext.cancel();
                 authContext.action("new");
-                authContext.display();
             };
             icon = (<img src={newPost} alt="New Post" />);
             break;
