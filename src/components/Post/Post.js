@@ -9,12 +9,12 @@ import TextDisplay from './../Display/TextDisplay/TextDisplay';
 const Post = props => {
     let post = null;
 
-    if (props.post) {
+    if (props.post && props.show) {
         post = (
             <>
-                <TitleDisplay blogTitle={props.post.title} />
+                <TitleDisplay blogTitle={props.post.title} showClose />
                 <DateDisplay blogAuthor={props.post.author} blogDate={props.post.date} />
-                <TextDisplay blogText={props.post.body} />
+                <TextDisplay blogText={props.post.body} noGradient maxHeight />
             </>
         );
     }

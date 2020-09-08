@@ -30,14 +30,12 @@ class Blog extends Component {
             });
     }
 
-    displayPostHandler = id => {
+    displayPost = id => {
         this.setState({ screen: 'post' });
         this.setState({ singlePost: this.state.posts[id] });
-        // this.setState({ postId: id });
-        this.toggleDisplayHandler();
     }
 
-    submitBlogHandler = () => {
+    submitNewBlog = () => {
         const blogTitle = document.querySelector("#blogTitle");
         const blogBody = document.querySelector("#blogBody");
         const blogAuthor = document.querySelector("#blogAuthor");
@@ -96,8 +94,9 @@ class Blog extends Component {
             action: this.toggleActionHandler,
             cancel: this.toggleInputHandler,
             display: this.toggleDisplayHandler,
-            post: this.displayPostHandler,
-            submit: this.submitBlogHandler
+            post: this.displayPost,
+            showPost: this.togglePostHandler,
+            submit: this.submitNewBlog
         };
 
         return (

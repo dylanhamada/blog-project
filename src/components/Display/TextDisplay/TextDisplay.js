@@ -4,15 +4,24 @@ import classes from './TextDisplay.module.css';
 
 const TextDisplay = props => {
     const textBox = useRef(null);
+    let maxHeight;
+
+    if (props.maxHeight) {
+        maxHeight = {
+            maxHeight: "none"
+        };
+    }
 
     useEffect(() => {
         const boxHeight = textBox.current.offsetHeight;
 
-        if (boxHeight > 149) { props.gradientToggle() }
+        if (!props.noGradient) {
+            if (boxHeight > 149) { props.gradientToggle() }
+        }
     });
 
     return (
-        <p className={classes.TextDisplay} ref={textBox}>{props.blogText}</p>
+        <p style={maxHeight} className={classes.TextDisplay} ref={textBox}>{props.blogText}</p>
     );
 };
 

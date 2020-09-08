@@ -13,9 +13,14 @@ const DisplayBox = props => {
     const gradientToggle = () => {
         setClass(classes.DisplayBoxLong);
     };
+    const boxClick = id => {
+        authContext.post(id);
+        authContext.display();
+        authContext.showPost();
+    };
 
     return (
-        <div className={boxClass} onClick={() => authContext.post(props.id)}>
+        <div className={boxClass} onClick={() => boxClick(props.id)}>
             <TitleDisplay blogTitle={props.blogTitle} />
             <DateDisplay blogAuthor={props.blogAuthor} blogDate={props.blogDate} />
             <TextDisplay blogText={props.blogText} gradientToggle={gradientToggle} />
