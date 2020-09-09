@@ -11,7 +11,7 @@ const Header = props => {
     const authContext = useContext(AuthContext);
 
     const closeInput = () => {
-        authContext.cancel();
+        authContext.input();
         authContext.action("home");
         authContext.display();
     };
