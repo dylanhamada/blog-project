@@ -12,6 +12,7 @@ import Post from '../../components/Post/Post';
 
 class Blog extends Component {
     state = {
+        inputType: null,
         screen: 'home',
         posts: null,
         singlePost: null,
@@ -62,12 +63,15 @@ class Blog extends Component {
     }
 
     submitEdit = () => {
+        let newEdit = this.getInput();
 
+        if (newEdit) {
+            console.log(newEdit);
+        }
     }
 
     submitNew = () => {
         let newPost = this.getInput();
-        console.log(newPost);
 
         if (newPost) {
             axios.post('/posts.json', newPost)
@@ -91,10 +95,12 @@ class Blog extends Component {
         this.setState({ showDisplay: toggleDisplay });
     }
 
-    toggleInput = () => {
+    toggleInput = type => {
         let toggleInput = this.state.showInput;
         toggleInput = !toggleInput;
         this.setState({ showInput: toggleInput });
+
+        this.setState({ inputType: type });
     }
 
     togglePost = () => {
@@ -110,13 +116,14 @@ class Blog extends Component {
             input: this.toggleInput,
             post: this.setPost,
             showPost: this.togglePost,
-            submit: this.submitNew
+            submitEdit: this.submitEdit,
+            submitNew: this.submitNew,
         };
 
         return (
             <React.Fragment>
                 <AuthContext.Provider value={actions}>
-                    <Input show={this.state.showInput} />
+                    <Input show={this.state.showInput} type={this.state.inputType} />
                     <Actions screen={this.state.screen} />
                     <Display posts={this.state.posts} show={this.state.showDisplay} />
                     <Post post={this.state.singlePost} show={this.state.showPost} />

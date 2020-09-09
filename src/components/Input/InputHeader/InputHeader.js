@@ -9,16 +9,16 @@ import cross from '../../../assets/icons/cross.svg';
 
 const Header = props => {
     const authContext = useContext(AuthContext);
-
     const closeInput = () => {
         authContext.input();
         authContext.action("home");
         authContext.display();
     };
+    let headerText = (props.type === "new") ? "New Post" : "Edit Post";
 
     return (
         <div className={classes.Header}>
-            <h2>New Post</h2>
+            <h2>{headerText}</h2>
             <img src={chevron} className={classes.ChevronClose} onClick={closeInput} alt="close" />
             <img src={cross} className={classes.CrossClose} onClick={closeInput} alt="close" />
         </div>

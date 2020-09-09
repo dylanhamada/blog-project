@@ -17,7 +17,7 @@ const Action = props => {
     switch (props.text) {
         case "New Post":
             clicked = () => {
-                authContext.input();
+                authContext.input("new");
                 authContext.action("new");
                 authContext.display();
             };
@@ -32,13 +32,24 @@ const Action = props => {
             icon = (<img src={cancelPost} alt="Cancel" />);
             break;
         case "Accept":
-            clicked = () => {
-                authContext.submit();
+            if (props.type === "new") {
+                clicked = () => {
+                    authContext.submitNew();
+                }
+            } else {
+                clicked = () => {
+                    authContext.submitEdit();
+                }
             }
             icon = (<img src={acceptPost} alt="Accept" />);
             break;
         case "Edit":
             icon = (<img src={editPost} alt="Edit" />);
+            clicked = () => {
+                authContext.input("edit");
+                authContext.action("edit");
+                authContext.showPost();
+            };
             break;
         case "Delete":
             icon = (<img src={deletePost} alt="Delete" />);

@@ -17,7 +17,16 @@ const Actions = props => {
             actionList = (
                 <>
                     <Action text="Cancel" />
-                    <Action text="Accept" />
+                    <Action text="Accept" type="new" />
+                </>
+            );
+            actionsStyle = classes.ActionsInput;
+            break;
+        case 'edit':
+            actionList = (
+                <>
+                    <Action text="Cancel" />
+                    <Action text="Accept" type="edit" />
                 </>
             );
             actionsStyle = classes.ActionsInput;

@@ -9,7 +9,7 @@ import BlogInput from './BlogInput/BlogInput';
 const Input = props => {
     let input = props.show ? (
         <div className={classes.Input}>
-            <InputHeader />
+            <InputHeader type={props.type} />
             <TitleInput />
             <AuthorInput />
             <BlogInput />
