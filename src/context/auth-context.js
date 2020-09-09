@@ -1,8 +1,12 @@
 import React from 'react';
 
 const authContext = React.createContext({
-    submit: () => { },
-    cancel: () => { }
+    action: () => { },
+    display: () => { },
+    input: () => { },
+    post: () => { },
+    showPost: () => { },
+    submit: () => { }
 });
 
 export default authContext;

@@ -61,6 +61,10 @@ class Blog extends Component {
         this.setState({ singlePost: this.state.posts[id] });
     }
 
+    submitEdit = () => {
+
+    }
+
     submitNew = () => {
         let newPost = this.getInput();
         console.log(newPost);
