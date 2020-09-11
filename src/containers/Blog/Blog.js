@@ -58,15 +58,22 @@ class Blog extends Component {
     }
 
     setPost = id => {
+        const singlePost = { ...this.state.posts[id], id: id };
+
         this.setState({ screen: 'post' });
-        this.setState({ singlePost: this.state.posts[id] });
+        this.setState({ singlePost: singlePost });
     }
 
     submitEdit = () => {
+        const postId = this.state.singlePost.id;
+        const newPosts = { ...this.state.posts };
         let newEdit = this.getInput();
 
+        console.log(this.state.posts);
+
         if (newEdit) {
-            console.log(newEdit);
+            newPosts[postId] = newEdit;
+            console.log(newPosts);
         }
     }
 
