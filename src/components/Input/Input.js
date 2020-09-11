@@ -10,9 +10,9 @@ const Input = props => {
     let input = props.show ? (
         <div className={classes.Input}>
             <InputHeader type={props.type} />
-            <TitleInput />
-            <AuthorInput />
-            <BlogInput />
+            <TitleInput type={props.type} post={props.post} />
+            <AuthorInput type={props.type} post={props.post} />
+            <BlogInput type={props.type} post={props.post} />
         </div>
     ) : null;
 

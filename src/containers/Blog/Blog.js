@@ -123,7 +123,7 @@ class Blog extends Component {
         return (
             <React.Fragment>
                 <AuthContext.Provider value={actions}>
-                    <Input show={this.state.showInput} type={this.state.inputType} />
+                    <Input show={this.state.showInput} type={this.state.inputType} post={this.state.singlePost} />
                     <Actions screen={this.state.screen} />
                     <Display posts={this.state.posts} show={this.state.showDisplay} />
                     <Post post={this.state.singlePost} show={this.state.showPost} />
