@@ -22,16 +22,20 @@ class Blog extends Component {
     }
 
     componentDidMount() {
+        this.getData();
+    }
+
+    actionHandler = action => {
+        this.setState({ screen: action });
+    }
+
+    getData = () => {
         axios.get('/posts.json')
             .then(response => {
                 if (response.data) {
                     this.setState({ posts: response.data });
                 }
             });
-    }
-
-    actionHandler = action => {
-        this.setState({ screen: action });
     }
 
     getInput = () => {
@@ -66,14 +70,24 @@ class Blog extends Component {
 
     submitEdit = () => {
         const postId = this.state.singlePost.id;
-        const newPosts = { ...this.state.posts };
         let newEdit = this.getInput();
 
-        console.log(this.state.posts);
-
         if (newEdit) {
-            newPosts[postId] = newEdit;
-            console.log(newPosts);
+            axios.patch(
+                '/posts/' + postId + '.json',
+                {
+                    title: newEdit.title,
+                    author: newEdit.author,
+                    body: newEdit.body,
+                    date: newEdit.date
+                }
+            )
+                .then((resp) => {
+                    if (resp) {
+                        this.getData();
+                    }
+                    this.setState({ showInput: false, showDisplay: true, screen: 'home' });
+                });
         }
     }
 
@@ -84,12 +98,7 @@ class Blog extends Component {
             axios.post('/posts.json', newPost)
                 .then(resp => {
                     if (resp) {
-                        axios.get('/posts.json')
-                            .then(resp => {
-                                if (resp.data) {
-                                    this.setState({ posts: resp.data });
-                                }
-                            });
+                        this.getData();
                     }
                     this.setState({ showInput: false, showDisplay: true, screen: 'home' });
                 });
