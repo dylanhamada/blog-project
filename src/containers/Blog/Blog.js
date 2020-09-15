@@ -29,11 +29,22 @@ class Blog extends Component {
         this.setState({ screen: action });
     }
 
+    deletePost = () => {
+        axios.delete('/posts/' + this.state.singlePost.id + '.json')
+            .then((response) => {
+                if (response) {
+                    this.getData();
+                }
+            });
+    }
+
     getData = () => {
         axios.get('/posts.json')
             .then(response => {
                 if (response.data) {
                     this.setState({ posts: response.data });
+                } else {
+                    this.setState({ posts: null });
                 }
             });
     }
@@ -97,11 +108,10 @@ class Blog extends Component {
 
         if (newPost) {
             axios.post('/posts.json', newPost)
-                .then(resp => {
-                    if (resp) {
+                .then(response => {
+                    if (response) {
                         this.getData();
                     }
-                    this.setState({ showInput: false, showDisplay: true, screen: 'home' });
                 });
         }
     }
@@ -130,6 +140,7 @@ class Blog extends Component {
         const actions = {
             action: this.actionHandler,
             display: this.toggleDisplay,
+            delete: this.deletePost,
             input: this.toggleInput,
             post: this.setPost,
             showPost: this.togglePost,

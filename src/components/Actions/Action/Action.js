@@ -35,10 +35,16 @@ const Action = props => {
             if (props.type === "new") {
                 clicked = () => {
                     authContext.submitNew();
+                    authContext.input();
+                    authContext.display();
+                    authContext.action("home");
                 }
             } else {
                 clicked = () => {
                     authContext.submitEdit();
+                    authContext.input();
+                    authContext.display();
+                    authContext.action("home");
                 }
             }
             icon = (<img src={acceptPost} alt="Accept" />);
@@ -53,6 +59,12 @@ const Action = props => {
             break;
         case "Delete":
             icon = (<img src={deletePost} alt="Delete" />);
+            clicked = () => {
+                authContext.delete();
+                authContext.showPost();
+                authContext.display();
+                authContext.action("home");
+            };
             break;
         default:
             clicked = () => {
