@@ -2,7 +2,7 @@ This project was built with [Create React App](https://github.com/facebook/creat
 
 ## Available Scripts
 
-In the project directory, you can run the following:
+In the project directory, you can run the following commands:
 
 ### `npm start`
 

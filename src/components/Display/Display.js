@@ -15,7 +15,7 @@ const Display = props => {
                 let currentPost = props.posts[post];
 
                 return (
-                    <DisplayBox key={post} id={post} blogTitle={currentPost.title} blogDate={currentPost.date} blogAuthor={currentPost.author} blogText={currentPost.body} />
+                    <DisplayBox key={post} id={post} blogTitle={currentPost.title} blogDate={currentPost.date} blogAuthor={currentPost.author} blogText={currentPost.body} blogEdited={currentPost.edited} />
                 );
             });
         }

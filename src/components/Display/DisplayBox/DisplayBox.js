@@ -22,7 +22,7 @@ const DisplayBox = props => {
     return (
         <div className={boxClass} onClick={() => boxClick(props.id)}>
             <TitleDisplay blogTitle={props.blogTitle} />
-            <DateDisplay blogAuthor={props.blogAuthor} blogDate={props.blogDate} />
+            <DateDisplay blogAuthor={props.blogAuthor} blogDate={props.blogDate} blogEdited={props.blogEdited} />
             <TextDisplay blogText={props.blogText} gradientToggle={gradientToggle} />
         </div>
     );

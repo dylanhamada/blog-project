@@ -79,7 +79,8 @@ class Blog extends Component {
                     title: newEdit.title,
                     author: newEdit.author,
                     body: newEdit.body,
-                    date: newEdit.date
+                    date: newEdit.date,
+                    edited: true
                 }
             )
                 .then((resp) => {
