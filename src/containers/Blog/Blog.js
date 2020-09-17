@@ -42,7 +42,8 @@ class Blog extends Component {
         axios.get('/posts.json')
             .then(response => {
                 if (response.data) {
-                    this.setState({ posts: response.data });
+                    const newPosts = this.reversePosts(response.data);
+                    this.setState({ posts: newPosts });
                 } else {
                     this.setState({ posts: null });
                 }
@@ -72,8 +73,23 @@ class Blog extends Component {
         return newPost;
     }
 
+    reversePosts(posts) {
+        const reverseEntries = [];
+
+        for (let entry of Object.keys(posts)) {
+            const post = {
+                ...posts[entry],
+                id: entry
+            };
+
+            reverseEntries.unshift(post);
+        }
+
+        return reverseEntries;
+    }
+
     setPost = id => {
-        const singlePost = { ...this.state.posts[id], id: id };
+        const singlePost = this.state.posts.find(post => post.id === id);
 
         this.setState({ screen: 'post' });
         this.setState({ singlePost: singlePost });

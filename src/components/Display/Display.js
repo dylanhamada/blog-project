@@ -9,15 +9,16 @@ const Display = props => {
 
     if (props.show) {
         if (props.posts) {
-            const postKeys = Object.keys(props.posts);
-
-            blogPosts = postKeys.map(post => {
-                let currentPost = props.posts[post];
-
-                return (
-                    <DisplayBox key={post} id={post} blogTitle={currentPost.title} blogDate={currentPost.date} blogAuthor={currentPost.author} blogText={currentPost.body} blogEdited={currentPost.edited} />
-                );
-            });
+            blogPosts = props.posts.map(post => (
+                <DisplayBox
+                    key={post.id}
+                    id={post.id}
+                    blogTitle={post.title}
+                    blogDate={post.date}
+                    blogAuthor={post.author}
+                    blogText={post.body}
+                    blogEdited={post.edited} />
+            ));
         }
 
         display = (
@@ -28,9 +29,9 @@ const Display = props => {
     }
 
     return (
-        <>
+        <React.Fragment>
             {display}
-        </>
+        </React.Fragment>
     );
 }
 
