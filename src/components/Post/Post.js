@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import classes from './Post.module.css';
 
@@ -13,7 +13,7 @@ const Post = props => {
         post = (
             <>
                 <TitleDisplay blogTitle={props.post.title} showClose />
-                <DateDisplay blogAuthor={props.post.author} blogDate={props.post.date} />
+                <DateDisplay blogAuthor={props.post.author} blogDate={props.post.date} blogEdited={props.post.edited} />
                 <TextDisplay blogText={props.post.body} noGradient maxHeight />
             </>
         );
