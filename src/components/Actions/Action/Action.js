@@ -24,10 +24,18 @@ const Action = props => {
             icon = (<img src={newPost} alt="New Post" />);
             break;
         case "Cancel":
-            clicked = () => {
-                authContext.input();
-                authContext.action("home");
-                authContext.display();
+            if (props.post) {
+                clicked = () => {
+                    authContext.input();
+                    authContext.post(props.post.id);
+                    authContext.showPost();
+                }
+            } else {
+                clicked = () => {
+                    authContext.input();
+                    authContext.action("home");
+                    authContext.display();
+                }
             }
             icon = (<img src={cancelPost} alt="Cancel" />);
             break;

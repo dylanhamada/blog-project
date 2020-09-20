@@ -25,7 +25,7 @@ const Actions = props => {
         case 'edit':
             actionList = (
                 <>
-                    <Action text="Cancel" />
+                    <Action text="Cancel" type="edit" post={props.post} />
                     <Action text="Accept" type="edit" />
                 </>
             );

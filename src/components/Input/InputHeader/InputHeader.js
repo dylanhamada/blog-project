@@ -9,12 +9,29 @@ import cross from '../../../assets/icons/cross.svg';
 
 const Header = props => {
     const authContext = useContext(AuthContext);
-    const closeInput = () => {
+    let headerText;
+    let closeInput = () => {
         authContext.input();
         authContext.action("home");
         authContext.display();
     };
-    let headerText = (props.type === "new") ? "New Post" : "Edit Post";
+
+    if (props.type === "new") {
+        headerText = "New Post";
+    } else {
+        headerText = "Edit Post";
+        closeInput = () => {
+            authContext.input();
+            authContext.post(props.postId);
+            authContext.showPost();
+        }
+    }
+    // const closeInput = () => {
+    //     authContext.input();
+    //     authContext.action("home");
+    //     authContext.display();
+    // };
+    // let headerText = (props.type === "new") ? "New Post" : "Edit Post";
 
     return (
         <div className={classes.Header}>
