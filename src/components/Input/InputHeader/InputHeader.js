@@ -7,7 +7,7 @@ import classes from './InputHeader.module.css';
 import chevron from '../../../assets/icons/chevron-down.svg';
 import cross from '../../../assets/icons/cross.svg';
 
-const Header = props => {
+const InputHeader = props => {
     const authContext = useContext(AuthContext);
     let headerText;
     let closeInput = () => {
@@ -16,13 +16,15 @@ const Header = props => {
         authContext.display();
     };
 
+    console.log(props);
+
     if (props.type === "new") {
         headerText = "New Post";
     } else {
         headerText = "Edit Post";
         closeInput = () => {
             authContext.input();
-            authContext.post(props.post.postId);
+            authContext.post(props.post.id);
             authContext.showPost();
         }
     }
@@ -36,4 +38,4 @@ const Header = props => {
     );
 }
 
-export default Header;
+export default InputHeader;

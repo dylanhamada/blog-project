@@ -90,6 +90,7 @@ class Blog extends Component {
 
     setPost = id => {
         const singlePost = this.state.posts.find(post => post.id === id);
+        console.log(singlePost);
 
         this.setState({ screen: 'post' });
         this.setState({ singlePost: singlePost });
