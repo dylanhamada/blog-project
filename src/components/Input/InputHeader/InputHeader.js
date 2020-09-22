@@ -22,16 +22,10 @@ const Header = props => {
         headerText = "Edit Post";
         closeInput = () => {
             authContext.input();
-            authContext.post(props.postId);
+            authContext.post(props.post.postId);
             authContext.showPost();
         }
     }
-    // const closeInput = () => {
-    //     authContext.input();
-    //     authContext.action("home");
-    //     authContext.display();
-    // };
-    // let headerText = (props.type === "new") ? "New Post" : "Edit Post";
 
     return (
         <div className={classes.Header}>

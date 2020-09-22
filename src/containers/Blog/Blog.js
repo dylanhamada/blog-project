@@ -13,8 +13,8 @@ import Post from '../../components/Post/Post';
 class Blog extends Component {
     state = {
         inputType: null,
-        screen: 'home',
         posts: null,
+        screen: 'home',
         singlePost: null,
         showDisplay: true,
         showInput: false,
@@ -141,9 +141,9 @@ class Blog extends Component {
     toggleInput = type => {
         let toggleInput = this.state.showInput;
         toggleInput = !toggleInput;
-        this.setState({ showInput: toggleInput });
 
         this.setState({ inputType: type });
+        this.setState({ showInput: toggleInput });
     }
 
     togglePost = () => {

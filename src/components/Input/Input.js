@@ -7,12 +7,14 @@ import AuthorInput from './AuthorInput/AuthorInput';
 import BlogInput from './BlogInput/BlogInput';
 
 const Input = props => {
+    let post = props.post ? props.post : null;
+
     let input = props.show ? (
         <div className={classes.Input}>
-            <InputHeader type={props.type} postId={props.post.id} />
-            <TitleInput type={props.type} post={props.post} />
-            <AuthorInput type={props.type} post={props.post} />
-            <BlogInput type={props.type} post={props.post} />
+            <InputHeader type={props.type} post={post} />
+            <TitleInput type={props.type} post={post} />
+            <AuthorInput type={props.type} post={post} />
+            <BlogInput type={props.type} post={post} />
         </div>
     ) : null;
 
