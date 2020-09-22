@@ -8,7 +8,12 @@ const AuthorInput = props => {
     return (
         <div className={classes.AuthorInput}>
             <p>Author</p>
-            <input id="blogAuthor" defaultValue={value} placeholder="Enter your name here"></input>
+            <input
+                autoComplete="off"
+                defaultValue={value}
+                id="blogAuthor"
+                placeholder="Enter your name here">
+            </input>
         </div>
     );
 };

@@ -8,7 +8,12 @@ const BlogInput = props => {
     return (
         <div className={classes.BlogInput}>
             <p>Blog Text</p>
-            <textarea id="blogBody" defaultValue={value} placeholder="Enter the blog text here"></textarea>
+            <textarea
+                autoComplete="off"
+                defaultValue={value}
+                id="blogBody"
+                placeholder="Enter the blog text here">
+            </textarea>
         </div>
     );
 }

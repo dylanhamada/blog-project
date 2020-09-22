@@ -8,7 +8,12 @@ const TitleInput = props => {
     return (
         <div className={classes.TitleInput}>
             <p>Title</p>
-            <input id="blogTitle" defaultValue={value} placeholder="Enter the blog title here"></input>
+            <input
+                autoComplete="off"
+                defaultValue={value}
+                id="blogTitle"
+                placeholder="Enter the blog title here">
+            </input>
         </div>
     );
 }
