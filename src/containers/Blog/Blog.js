@@ -8,7 +8,6 @@ import Actions from '../../components/Actions/Actions';
 import Input from '../../components/Input/Input';
 import Display from '../../components/Display/Display';
 import Post from '../../components/Post/Post';
-// import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 class Blog extends Component {
     state = {
