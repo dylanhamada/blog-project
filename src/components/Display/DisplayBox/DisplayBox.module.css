@@ -1,10 +1,12 @@
 .DisplayBox {
-  margin: 25px auto;
+  cursor: pointer;
+  margin: 25px auto 45px auto;
   position: relative;
 }
 
 .DisplayBoxLong {
-  margin: 25px auto;
+  cursor: pointer;
+  margin: 25px auto 45px auto;
   position: relative;
 }
 

@@ -24,7 +24,7 @@ const Action = props => {
             icon = (<img src={newPost} alt="New Post" />);
             break;
         case "Cancel":
-            if (props.post) {
+            if (props.type === "edit") {
                 clicked = () => {
                     authContext.input();
                     authContext.post(props.post.id);
@@ -42,10 +42,14 @@ const Action = props => {
         case "Accept":
             if (props.type === "new") {
                 clicked = () => {
-                    authContext.submitNew();
-                    authContext.input();
-                    authContext.display();
-                    authContext.action("home");
+                    let inputValid = authContext.getInput("validate");
+
+                    if (inputValid) {
+                        authContext.submitNew();
+                        authContext.input();
+                        authContext.display();
+                        authContext.action("home");
+                    }
                 }
             } else {
                 clicked = () => {
@@ -78,6 +82,7 @@ const Action = props => {
             clicked = () => {
                 authContext.input();
                 authContext.action("new");
+                authContext.display();
             };
             icon = (<img src={newPost} alt="New Post" />);
             break;

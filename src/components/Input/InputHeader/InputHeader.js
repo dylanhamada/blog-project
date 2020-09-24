@@ -16,8 +16,6 @@ const InputHeader = props => {
         authContext.display();
     };
 
-    console.log(props);
-
     if (props.type === "new") {
         headerText = "New Post";
     } else {
