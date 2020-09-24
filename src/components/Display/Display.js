@@ -4,9 +4,10 @@ import classes from './Display.module.css';
 import DisplayBox from './DisplayBox/DisplayBox';
 
 const Display = props => {
-    let display = null;
     let blogPosts = null;
 
+    /* If app state showDisplay prop is true, and app state posts prop
+    is not falsy, create an array of DisplayBox components */
     if (props.show) {
         if (props.posts) {
             blogPosts = props.posts.map(post => (
@@ -20,18 +21,12 @@ const Display = props => {
                     blogEdited={post.edited} />
             ));
         }
-
-        display = (
-            <div className={classes.Display}>
-                {blogPosts}
-            </div>
-        );
     }
 
     return (
-        <React.Fragment>
-            {display}
-        </React.Fragment>
+        <div className={classes.Display}>
+            {blogPosts}
+        </div>
     );
 }
 

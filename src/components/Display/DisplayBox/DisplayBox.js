@@ -10,9 +10,11 @@ import DateDisplay from './../DateDisplay/DateDisplay';
 const DisplayBox = props => {
     const authContext = useContext(AuthContext);
     const [boxClass, setClass] = useState(classes.DisplayBox);
+    // Set CSS class to one with white gradient overlay
     const gradientToggle = () => {
         setClass(classes.DisplayBoxLong);
     };
+    // Render just the clicked post in a Post component and unmount Display component
     const boxClick = id => {
         authContext.post(id);
         authContext.display();

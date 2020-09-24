@@ -9,18 +9,20 @@ import cross from '../../../assets/icons/cross.svg';
 
 const TitleDisplay = props => {
     const authContext = useContext(AuthContext);
-    const closeInput = () => {
+    // When TitleDisplay rendered as a child of Post component, close it
+    const close = () => {
         authContext.action("home");
         authContext.display();
         authContext.showPost();
     };
     let closeButton = null;
 
+    // Render close icons when TitleDisplay rendered as child of Post component
     if (props.showClose) {
         closeButton = (
             <>
-                <img src={chevron} className={classes.ChevronClose} onClick={closeInput} alt="close" />
-                <img src={cross} className={classes.CrossClose} onClick={closeInput} alt="close" />
+                <img src={chevron} className={classes.ChevronClose} onClick={close} alt="close" />
+                <img src={cross} className={classes.CrossClose} onClick={close} alt="close" />
             </>
         );
     }

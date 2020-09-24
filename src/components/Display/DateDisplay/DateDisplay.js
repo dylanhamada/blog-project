@@ -3,6 +3,7 @@ import React from 'react';
 import classes from './DateDisplay.module.css';
 
 const DateDisplay = props => {
+    // If "edited" property in app state singlePost property, prepend the following
     let edited = props.blogEdited ? "edited " : null;
 
     return (

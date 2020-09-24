@@ -7,6 +7,7 @@ const Actions = props => {
     let actionList;
     let actionsStyle = classes.Actions;
 
+    // Render Action components depending on app state "screen" property
     switch (props.screen) {
         case 'home':
             actionList = (

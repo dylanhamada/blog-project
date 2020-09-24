@@ -4,14 +4,9 @@ import classes from './TextDisplay.module.css';
 
 const TextDisplay = props => {
     const textBox = useRef(null);
-    let maxHeight;
 
-    if (props.maxHeight) {
-        maxHeight = {
-            maxHeight: "none"
-        };
-    }
-
+    /* Check if rendered paragraph element is taller than 149 pixels,
+    and if true, call gradientToggle to apply a white gradient overlay */
     useEffect(() => {
         const boxHeight = textBox.current.offsetHeight;
 
@@ -21,7 +16,7 @@ const TextDisplay = props => {
     });
 
     return (
-        <p style={maxHeight} className={classes.TextDisplay} ref={textBox}>{props.blogText}</p>
+        <p className={classes.TextDisplay} ref={textBox}>{props.blogText}</p>
     );
 };
 

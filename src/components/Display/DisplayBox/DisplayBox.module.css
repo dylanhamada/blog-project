@@ -1,15 +1,11 @@
-.DisplayBox {
+.DisplayBox, .DisplayBoxLong {
   cursor: pointer;
   margin: 25px auto 45px auto;
   position: relative;
 }
 
-.DisplayBoxLong {
-  cursor: pointer;
-  margin: 25px auto 45px auto;
-  position: relative;
-}
-
+/* Set a white gradient overlay to hide the bottom of
+DisplayBox component */
 .DisplayBoxLong::before {
   background-image: linear-gradient(
     180deg,

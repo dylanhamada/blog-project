@@ -1,3 +1,5 @@
+/* On mobile, actions are always displayed as icons at bottom
+of screen */
 .Actions, .ActionsInput {
   align-items: center;
   background: white;

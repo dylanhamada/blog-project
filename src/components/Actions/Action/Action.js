@@ -24,12 +24,14 @@ const Action = props => {
             icon = (<img src={newPost} alt="New Post" />);
             break;
         case "Cancel":
+            // If editing a post, clicking Cancel renders Post component
             if (props.type === "edit") {
                 clicked = () => {
                     authContext.input();
                     authContext.post(props.post.id);
                     authContext.showPost();
                 }
+                // If creatinga new post, clicking Cancel renders Display component
             } else {
                 clicked = () => {
                     authContext.input();
@@ -40,6 +42,8 @@ const Action = props => {
             icon = (<img src={cancelPost} alt="Cancel" />);
             break;
         case "Accept":
+            /* If clicking Accept while writing a new post, check if all inputs
+            are filled, and if true, make a POST request and render Display component */
             if (props.type === "new") {
                 clicked = () => {
                     let inputValid = authContext.getInput("validate");

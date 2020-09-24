@@ -24,6 +24,7 @@ class Blog extends Component {
         this.getData();
     }
 
+    // Change state screen property to determine what icons/buttons are rendered in Actions component
     actionHandler = action => {
         this.setState({ screen: action });
     }
@@ -37,6 +38,7 @@ class Blog extends Component {
             });
     }
 
+    // Set state posts property which is passed as props to Display component
     getData = () => {
         axios.get('/posts.json')
             .then(response => {
@@ -74,6 +76,8 @@ class Blog extends Component {
         return newPost;
     }
 
+    /* Reverse order of blog posts in state posts property to render 
+    posts to Display component newest first */
     reversePosts(posts) {
         const reverseEntries = [];
 
@@ -89,6 +93,7 @@ class Blog extends Component {
         return reverseEntries;
     }
 
+    // Set state singlePost property to pass as props to Post component
     setPost = id => {
         const singlePost = this.state.posts.find(post => post.id === id);
 
@@ -96,6 +101,9 @@ class Blog extends Component {
         this.setState({ singlePost: singlePost });
     }
 
+    /* Patch the property in the database "posts" node, but add an "edited"
+    property to pass as props to the DateDisplay component, which will
+    prefix some text to the author line */
     submitEdit = () => {
         const postId = this.state.singlePost.id;
         let newEdit = this.getInput();
@@ -154,6 +162,7 @@ class Blog extends Component {
     }
 
     render() {
+        // Map methods to new properties, then pass to Context
         const actions = {
             action: this.actionHandler,
             display: this.toggleDisplay,
