@@ -4,6 +4,7 @@ import classes from './Display.module.css';
 import DisplayBox from './DisplayBox/DisplayBox';
 
 const Display = props => {
+    let display = null;
     let blogPosts = null;
 
     /* If app state showDisplay prop is true, and app state posts prop
@@ -21,13 +22,11 @@ const Display = props => {
                     blogEdited={post.edited} />
             ));
         }
+
+        display = <div className={classes.Display}>{blogPosts}</div>;
     }
 
-    return (
-        <div className={classes.Display}>
-            {blogPosts}
-        </div>
-    );
+    return display;
 }
 
 export default Display;

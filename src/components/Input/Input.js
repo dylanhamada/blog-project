@@ -18,11 +18,7 @@ const Input = props => {
         </div>
     ) : null;
 
-    return (
-        <>
-            {input}
-        </>
-    );
+    return input;
 }
 
 export default Input;

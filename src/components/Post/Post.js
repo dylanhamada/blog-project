@@ -11,19 +11,15 @@ const Post = props => {
 
     if (props.post && props.show) {
         post = (
-            <>
+            <div className={classes.Post}>
                 <TitleDisplay blogTitle={props.post.title} showClose />
                 <DateDisplay blogAuthor={props.post.author} blogDate={props.post.date} blogEdited={props.post.edited} />
                 <TextDisplay blogText={props.post.body} noGradient maxHeight />
-            </>
+            </div>
         );
     }
 
-    return (
-        <div className={classes.Post}>
-            {post}
-        </div>
-    );
+    return post;
 };
 
 export default Post;

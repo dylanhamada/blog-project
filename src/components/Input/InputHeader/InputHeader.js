@@ -16,6 +16,7 @@ const InputHeader = props => {
         authContext.display();
     };
 
+    // If editing an existing post, clicking the "close" button will render the individual Posts component
     if (props.type === "new") {
         headerText = "New Post";
     } else {

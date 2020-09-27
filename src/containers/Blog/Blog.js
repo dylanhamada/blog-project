@@ -51,7 +51,7 @@ class Blog extends Component {
             });
     }
 
-    getInput = validate => {
+    getInput = () => {
         const blogTitle = document.querySelector("#blogTitle");
         const blogBody = document.querySelector("#blogBody");
         const blogAuthor = document.querySelector("#blogAuthor");
@@ -65,12 +65,6 @@ class Blog extends Component {
                 body: blogBody.value,
                 date: blogDate
             };
-
-            if (validate !== "validate") {
-                blogTitle.value = "";
-                blogAuthor.value = "";
-                blogBody.value = "";
-            }
         }
 
         return newPost;
@@ -123,7 +117,6 @@ class Blog extends Component {
                     if (resp) {
                         this.getData();
                     }
-                    this.setState({ showInput: false, showDisplay: true, screen: 'home' });
                 });
         }
     }

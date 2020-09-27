@@ -46,7 +46,7 @@ const Action = props => {
             are filled, and if true, make a POST request and render Display component */
             if (props.type === "new") {
                 clicked = () => {
-                    let inputValid = authContext.getInput("validate");
+                    let inputValid = authContext.getInput();
 
                     if (inputValid) {
                         authContext.submitNew();
@@ -57,10 +57,14 @@ const Action = props => {
                 }
             } else {
                 clicked = () => {
-                    authContext.submitEdit();
-                    authContext.input();
-                    authContext.display();
-                    authContext.action("home");
+                    let inputValid = authContext.getInput();
+
+                    if (inputValid) {
+                        authContext.submitEdit();
+                        authContext.input();
+                        authContext.display();
+                        authContext.action("home");
+                    }
                 }
             }
             icon = (<img src={acceptPost} alt="Accept" />);
