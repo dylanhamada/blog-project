@@ -12,6 +12,11 @@ import Post from '../../components/Post/Post';
 class Blog extends Component {
     state = {
         inputType: null,
+        inputWarnings: {
+            title: false,
+            author: false,
+            text: false
+        },
         posts: null,
         screen: 'home',
         singlePost: null,
@@ -27,6 +32,16 @@ class Blog extends Component {
     // Change state screen property to determine what icons/buttons are rendered in Actions component
     actionHandler = action => {
         this.setState({ screen: action });
+    }
+
+    clearWarnings = () => {
+        this.setState({
+            inputWarnings: {
+                title: false,
+                author: false,
+                text: false
+            }
+        });
     }
 
     deletePost = () => {
@@ -65,6 +80,67 @@ class Blog extends Component {
                 body: blogBody.value,
                 date: blogDate
             };
+        }
+        /* If any inputs are empty, update state inputWarnings property that will be passed to Input component 
+        and change colour of related input element */
+        else {
+            if (!blogTitle.value) {
+                this.setState(prevState => {
+                    return {
+                        inputWarnings: {
+                            ...prevState.inputWarnings,
+                            title: true
+                        }
+                    };
+                });
+            } else {
+                this.setState(prevState => {
+                    return {
+                        inputWarnings: {
+                            ...prevState.inputWarnings,
+                            title: false
+                        }
+                    };
+                });
+            }
+            if (!blogAuthor.value) {
+                this.setState(prevState => {
+                    return {
+                        inputWarnings: {
+                            ...prevState.inputWarnings,
+                            author: true
+                        }
+                    };
+                });
+            } else {
+                this.setState(prevState => {
+                    return {
+                        inputWarnings: {
+                            ...prevState.inputWarnings,
+                            author: false
+                        }
+                    };
+                });
+            }
+            if (!blogBody.value) {
+                this.setState(prevState => {
+                    return {
+                        inputWarnings: {
+                            ...prevState.inputWarnings,
+                            text: true
+                        }
+                    };
+                });
+            } else {
+                this.setState(prevState => {
+                    return {
+                        inputWarnings: {
+                            ...prevState.inputWarnings,
+                            text: false
+                        }
+                    };
+                });
+            }
         }
 
         return newPost;
@@ -158,6 +234,7 @@ class Blog extends Component {
         // Map methods to new properties, then pass to Context
         const actions = {
             action: this.actionHandler,
+            clear: this.clearWarnings,
             display: this.toggleDisplay,
             delete: this.deletePost,
             getInput: this.getInput,
@@ -171,8 +248,8 @@ class Blog extends Component {
         return (
             <React.Fragment>
                 <AuthContext.Provider value={actions}>
-                    <Input show={this.state.showInput} type={this.state.inputType} post={this.state.singlePost} />
-                    <Actions screen={this.state.screen} post={this.state.singlePost} />
+                    <Input post={this.state.singlePost} show={this.state.showInput} type={this.state.inputType} warnings={this.state.inputWarnings} />
+                    <Actions post={this.state.singlePost} screen={this.state.screen} />
                     <Display posts={this.state.posts} show={this.state.showDisplay} />
                     <Post post={this.state.singlePost} show={this.state.showPost} />
                 </AuthContext.Provider>

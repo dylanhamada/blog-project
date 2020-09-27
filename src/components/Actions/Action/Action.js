@@ -30,6 +30,7 @@ const Action = props => {
                     authContext.input();
                     authContext.post(props.post.id);
                     authContext.showPost();
+                    authContext.clear();
                 }
                 // If creatinga new post, clicking Cancel renders Display component
             } else {
@@ -37,6 +38,7 @@ const Action = props => {
                     authContext.input();
                     authContext.action("home");
                     authContext.display();
+                    authContext.clear();
                 }
             }
             icon = (<img src={cancelPost} alt="Cancel" />);

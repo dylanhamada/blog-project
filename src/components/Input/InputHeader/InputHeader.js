@@ -14,6 +14,7 @@ const InputHeader = props => {
         authContext.input();
         authContext.action("home");
         authContext.display();
+        authContext.clear();
     };
 
     // If editing an existing post, clicking the "close" button will render the individual Posts component
@@ -25,6 +26,7 @@ const InputHeader = props => {
             authContext.input();
             authContext.post(props.post.id);
             authContext.showPost();
+            authContext.clear();
         }
     }
 
