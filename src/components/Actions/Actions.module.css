@@ -9,6 +9,7 @@ of screen */
   height: 10%;
   justify-content: space-around;
   left: 0;
+  min-height: 60px;
   position: fixed;
   width: 100%;
   z-index: 100;

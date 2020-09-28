@@ -22,6 +22,10 @@ h2 {
     margin-bottom: 0;
 }
 
+img:hover {
+    opacity: 0.55;
+}
+
 @media (min-width: 800px) {
     .ChevronClose {
         display: none;

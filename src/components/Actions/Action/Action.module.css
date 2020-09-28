@@ -11,6 +11,10 @@
   display: none;
 }
 
+span:hover {
+  opacity: 0.55;
+}
+
 @media (min-width: 600px) {
   .Icon {
     display: inline-block;
