@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/blog-project/static/css/main.6ef835ed.chunk.css",
+    "main.css": "/blog-project/static/css/main.067ffa53.chunk.css",
     "main.js": "/blog-project/static/js/main.29e02f1f.chunk.js",
     "main.js.map": "/blog-project/static/js/main.29e02f1f.chunk.js.map",
     "runtime-main.js": "/blog-project/static/js/runtime-main.a99b2ddc.js",
@@ -8,9 +8,9 @@
     "static/js/2.9eaa0b6d.chunk.js": "/blog-project/static/js/2.9eaa0b6d.chunk.js",
     "static/js/2.9eaa0b6d.chunk.js.map": "/blog-project/static/js/2.9eaa0b6d.chunk.js.map",
     "index.html": "/blog-project/index.html",
-    "precache-manifest.d1d30a0b868cf2cf828cf71dc7c099e1.js": "/blog-project/precache-manifest.d1d30a0b868cf2cf828cf71dc7c099e1.js",
+    "precache-manifest.f987d772b83a400ba90dc95430bc37ed.js": "/blog-project/precache-manifest.f987d772b83a400ba90dc95430bc37ed.js",
     "service-worker.js": "/blog-project/service-worker.js",
-    "static/css/main.6ef835ed.chunk.css.map": "/blog-project/static/css/main.6ef835ed.chunk.css.map",
+    "static/css/main.067ffa53.chunk.css.map": "/blog-project/static/css/main.067ffa53.chunk.css.map",
     "static/js/2.9eaa0b6d.chunk.js.LICENSE.txt": "/blog-project/static/js/2.9eaa0b6d.chunk.js.LICENSE.txt",
     "static/media/checkmark.svg": "/blog-project/static/media/checkmark.d5f8da2a.svg",
     "static/media/chevron-down.svg": "/blog-project/static/media/chevron-down.527456df.svg",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.a99b2ddc.js",
     "static/js/2.9eaa0b6d.chunk.js",
-    "static/css/main.6ef835ed.chunk.css",
+    "static/css/main.067ffa53.chunk.css",
     "static/js/main.29e02f1f.chunk.js"
   ]
 }
