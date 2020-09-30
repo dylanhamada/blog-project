@@ -1,69 +1,61 @@
-This project was built with [Create React App](https://github.com/facebook/create-react-app).
+# Blog Project
 
-## Available Scripts
+A clean and simple blog app built with React. Users can create, edit, and delete posts, which are arranged chronologically newest-first. 
 
-In the project directory, you can run the following commands:
+## Introduction
 
-### `npm start`
+While studying [React - The Complete Guide by Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/), I decided to apply what I learned about conditional rendering and HTTP requests using axios. About a month and a half later, I completed this app.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Status
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The app's minimum-viable-product is completed, and can be viewed on [GitHub Pages](https://dylanhamada.github.io/blog-project/).
 
-### `npm test`
+## Technologies
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+    - Context API
+- axios
+- Moment.js
+- Firebase Real Time Database
 
-### `npm run build`
+## Installation and Instructions
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The app itself is fairly self-explanatory. Any user can create, edit, and delete posts. There is no user authentication, and the Firebase database is freely accessible.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To install:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 
-### `npm run eject`
+Installation:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`npm install`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To Start Server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`npm start`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To Visit App:
 
-## Learn More
+`localhost:3000/blog-project`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Reflection
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I'm very proud of what I accomplished, given that this is the most complex React app I've built to date. It may not look like it from the outside, but this took hours and hours of work, including countless moments of referring back to video and written tutorials, scratching my head cluelessly, and sleeping on a problem only to wake up the next morning with the solution.
 
-### Code Splitting
+Here are some of the pitfalls common to new React developers that I fell into:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Repeating app logic in multiple components instead of extracting it to a common method
+- Having trouble piping state to various nested components
+- Making clean HTTP requests without `.then` calls nested to the center of the Earth
+- CSS fine-tuning
 
-### Analyzing the Bundle Size
+Some of these problems were mitigated, and some of them are still present in the MVP.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+I feel that this app as an MVP is complete, and want to move on to my next project. However, I will revisit this app in the future, and make the following upgrades:
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# blog-project
+- Use async/await instead of nested HTTP requests
+- Manage state with Redux
+- Implement draft.js for rich-text input
+- Image and video upload
+- User authentication
+- Search functionality
